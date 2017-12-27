@@ -288,8 +288,7 @@ STL2_OPEN_NAMESPACE {
 		}
 
 		template <class S, class I>
-		requires
-			Sentinel<S, I> && !SizedSentinel<S, I> && SizedSentinel<I, I>
+		requires Sentinel<S, I> && !SizedSentinel<S, I> && SizedSentinel<I, I>
 		constexpr tagged_pair<tag::count(difference_type_t<I>), tag::end(I)>
 		enumerate(I first, S last)
 		noexcept(noexcept(__stl2::next(first, std::move(last))) &&

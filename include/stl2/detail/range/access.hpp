@@ -501,8 +501,7 @@ STL2_OPEN_NAMESPACE {
 		struct fn {
 			// Prefer member
 			template <class R>
-			requires
-				has_member<R>
+			requires has_member<R>
 			constexpr auto operator()(R& r) const
 			STL2_NOEXCEPT_RETURN(
 				r.data()
@@ -510,8 +509,7 @@ STL2_OPEN_NAMESPACE {
 
 			// Return begin(r) if it's a pointer
 			template <class R>
-			requires
-				!has_member<R> && has_pointer_iterator<R>
+			requires !has_member<R> && has_pointer_iterator<R>
 			constexpr auto operator()(R& r) const
 			STL2_NOEXCEPT_RETURN(
 				__stl2::begin(r)
@@ -562,7 +560,7 @@ STL2_OPEN_NAMESPACE {
 		namespace __cdata {
 			struct fn {
 				template <class R>
-					requires requires(const R& r) { __stl2::data(r); }
+				requires requires(const R& r) { __stl2::data(r); }
 				constexpr auto operator()(const R& r) const
 				STL2_NOEXCEPT_RETURN(__stl2::data(r))
 
@@ -581,7 +579,5 @@ STL2_OPEN_NAMESPACE {
 		}
 	}
 } STL2_CLOSE_NAMESPACE
-
-#undef STL2_TREAT_RVALUES_AS_CONST
 
 #endif
