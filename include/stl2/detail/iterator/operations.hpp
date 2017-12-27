@@ -190,46 +190,70 @@ STL2_OPEN_NAMESPACE {
 		return 0;
 	}
 
+	////////////////////////////////////////////////////////////////////////////
 	// next
-	Iterator{I}
-	constexpr I next(I x, difference_type_t<I> n = 1)
-	STL2_NOEXCEPT_RETURN(
-		__stl2::advance(x, n),
-		x
-	)
+	//
+	struct __next_fn {
+		Iterator{I}
+		constexpr I operator()(I x) const
+		STL2_NOEXCEPT_RETURN(
+			++x
+		)
 
-	template <class S, class I>
-	requires
-		Sentinel<__f<S>, I>
-	constexpr I next(I x, S&& bound)
-	STL2_NOEXCEPT_RETURN(
-		__stl2::advance(x, std::forward<S>(bound)),
-		x
-	)
+		Iterator{I}
+		constexpr I operator()(I x, difference_type_t<I> n) const
+		STL2_NOEXCEPT_RETURN(
+			__stl2::advance(x, n),
+			x
+		)
 
-	template <class S, class I>
-	requires
-		Sentinel<__f<S>, I>
-	constexpr I next(I x, difference_type_t<I> n, S&& bound)
-	STL2_NOEXCEPT_RETURN(
-		__stl2::advance(x, n, std::forward<S>(bound)),
-		x
-	)
+		Sentinel{S, I}
+		constexpr I operator()(I x, S bound) const
+		STL2_NOEXCEPT_RETURN(
+			__stl2::advance(x, std::move(bound)),
+			x
+		)
 
+		Sentinel{S, I}
+		constexpr I operator()(I x, difference_type_t<I> n, S bound) const
+		STL2_NOEXCEPT_RETURN(
+			__stl2::advance(x, n, std::move(bound)),
+			x
+		)
+	};
+	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
+	inline namespace {
+		constexpr auto& next = detail::static_const<__next_fn>::value;
+	}
+
+	////////////////////////////////////////////////////////////////////////////
 	// prev
-	BidirectionalIterator{I}
-	constexpr I prev(I x, difference_type_t<I> n = 1)
-	STL2_NOEXCEPT_RETURN(
-		__stl2::advance(x, -n),
-		x
-	)
+	//
+	struct __prev_fn {
+		BidirectionalIterator{I}
+		constexpr I operator()(I x) const
+		STL2_NOEXCEPT_RETURN(
+			--x
+		)
 
-	BidirectionalIterator{I}
-	constexpr I prev(I x, difference_type_t<I> n, I bound)
-	STL2_NOEXCEPT_RETURN(
-		__stl2::advance(x, -n, std::move(bound)),
-		x
-	)
+		BidirectionalIterator{I}
+		constexpr I operator()(I x, difference_type_t<I> n) const
+		STL2_NOEXCEPT_RETURN(
+			__stl2::advance(x, -n),
+			x
+		)
+
+		BidirectionalIterator{I}
+		constexpr I operator()(I x, difference_type_t<I> n, I bound) const
+		STL2_NOEXCEPT_RETURN(
+			__stl2::advance(x, -n, std::move(bound)),
+			x
+		)
+	};
+	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
+	inline namespace {
+		constexpr auto& prev = detail::static_const<__prev_fn>::value;
+	}
 
 	namespace ext {
 		Sentinel{S, I}
