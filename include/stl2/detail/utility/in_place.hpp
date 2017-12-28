@@ -18,7 +18,7 @@ STL2_OPEN_NAMESPACE {
 	struct in_place_t {
 		explicit in_place_t() = default;
 	};
-	inline namespace {
+	namespace {
 		constexpr auto& in_place = detail::static_const<in_place_t>::value;
 	}
 
@@ -26,7 +26,7 @@ STL2_OPEN_NAMESPACE {
 	struct in_place_type_t {
 		explicit in_place_type_t() = default;
 	};
-	inline namespace {
+	namespace {
 		template <class T>
 		constexpr const in_place_type_t<T>& in_place_type = detail::static_const<in_place_type_t<T>>::value;
 	}
@@ -35,7 +35,7 @@ STL2_OPEN_NAMESPACE {
 	struct in_place_index_t {
 		explicit in_place_index_t() = default;
 	};
-	inline namespace {
+	namespace {
 		template <std::size_t I>
 		constexpr const in_place_index_t<I>& in_place_index = detail::static_const<in_place_index_t<I>>::value;
 	}

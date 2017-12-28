@@ -95,8 +95,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& swap = detail::static_const<__swap::fn>::value;
 	}
 

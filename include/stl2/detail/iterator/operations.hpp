@@ -191,8 +191,7 @@ STL2_OPEN_NAMESPACE {
 		constexpr void operator()(counted_iterator<I>& i, difference_type_t<I> n) const
 		noexcept(noexcept(std::declval<I&>() += n));
 	};
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& advance = detail::static_const<__advance_fn>::value;
 	}
 
@@ -227,8 +226,7 @@ STL2_OPEN_NAMESPACE {
 			x
 		)
 	};
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& next = detail::static_const<__next_fn>::value;
 	}
 
@@ -256,8 +254,7 @@ STL2_OPEN_NAMESPACE {
 			x
 		)
 	};
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& prev = detail::static_const<__prev_fn>::value;
 	}
 

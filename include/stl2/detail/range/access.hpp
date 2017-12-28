@@ -79,8 +79,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& begin = detail::static_const<__begin::fn>::value;
 	}
 
@@ -136,8 +135,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& end = detail::static_const<__end::fn>::value;
 	}
 
@@ -161,8 +159,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& cbegin = detail::static_const<__cbegin::fn>::value;
 	}
 
@@ -186,8 +183,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& cend = detail::static_const<__cend::fn>::value;
 	}
 
@@ -237,8 +233,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& rbegin = detail::static_const<__rbegin::fn>::value;
 	}
 
@@ -287,8 +282,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& rend = detail::static_const<__rend::fn>::value;
 	}
 
@@ -312,8 +306,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& crbegin = detail::static_const<__crbegin::fn>::value;
 	}
 
@@ -337,8 +330,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& crend = detail::static_const<__crend::fn>::value;
 	}
 
@@ -405,8 +397,7 @@ STL2_OPEN_NAMESPACE {
 			)
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& size = detail::static_const<__size::fn>::value;
 	}
 
@@ -464,8 +455,7 @@ STL2_OPEN_NAMESPACE {
 			)
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& empty = detail::static_const<__empty::fn>::value;
 	}
 
@@ -550,8 +540,7 @@ STL2_OPEN_NAMESPACE {
 			}
 		};
 	}
-	// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-	inline namespace {
+	namespace {
 		constexpr auto& data = detail::static_const<__data::fn>::value;
 	}
 
@@ -573,8 +562,7 @@ STL2_OPEN_NAMESPACE {
 				}
 			};
 		}
-		// Workaround GCC PR66957 by declaring this unnamed namespace inline.
-		inline namespace {
+		namespace {
 			constexpr auto& cdata = detail::static_const<__cdata::fn>::value;
 		}
 	}
