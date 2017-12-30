@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -248,6 +248,7 @@
     <ClInclude Include="include\stl2\memory.hpp" />
     <ClInclude Include="include\stl2\optional.hpp" />
     <ClInclude Include="include\stl2\random.hpp" />
+    <ClInclude Include="include\stl2\range.hpp" />
     <ClInclude Include="include\stl2\tuple.hpp" />
     <ClInclude Include="include\stl2\type_traits.hpp" />
     <ClInclude Include="include\stl2\utility.hpp" />
@@ -451,6 +452,7 @@
     <None Include="include\experimental\ranges\iterator" />
     <None Include="include\experimental\ranges\memory" />
     <None Include="include\experimental\ranges\random" />
+    <None Include="include\experimental\ranges\range" />
     <None Include="include\experimental\ranges\tuple" />
     <None Include="include\experimental\ranges\type_traits" />
     <None Include="include\experimental\ranges\utility" />

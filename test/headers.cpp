@@ -15,6 +15,7 @@
 #include <experimental/ranges/functional>
 #include <experimental/ranges/iterator>
 #include <experimental/ranges/random>
+#include <experimental/ranges/range>
 #include <experimental/ranges/tuple>
 #include <experimental/ranges/type_traits>
 #include <experimental/ranges/utility>
@@ -25,6 +26,7 @@
 #include <stl2/memory.hpp>
 #include <stl2/optional.hpp>
 #include <stl2/random.hpp>
+#include <stl2/range.hpp>
 #include <stl2/tuple.hpp>
 #include <stl2/type_traits.hpp>
 #include <stl2/utility.hpp>
