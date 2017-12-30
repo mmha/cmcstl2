@@ -431,24 +431,21 @@ STL2_OPEN_NAMESPACE {
 		struct fn {
 			// Prefer member
 			template <class R>
-			requires
-				has_member<R>
+			requires has_member<R>
 			constexpr bool operator()(const R& r) const
 			STL2_NOEXCEPT_RETURN(
 				static_cast<bool>(r.empty())
 			)
 			// Use size
 			template <class R>
-			requires
-				!has_member<R> && has_size<R>
+			requires !has_member<R> && has_size<R>
 			constexpr bool operator()(const R& r) const
 			STL2_NOEXCEPT_RETURN(
 				__stl2::size(r) == 0
 			)
 			// Use begin == end
 			template <class R>
-			requires
-				!has_member<R> && !has_size<R> && has_begin_end<R>
+			requires !has_member<R> && !has_size<R> && has_begin_end<R>
 			constexpr bool operator()(const R& r) const
 			STL2_NOEXCEPT_RETURN(
 				static_cast<bool>(__stl2::begin(r) == __stl2::end(r))
@@ -505,8 +502,7 @@ STL2_OPEN_NAMESPACE {
 				__stl2::begin(r)
 			)
 
-			// Extension: Support contiguous ranges with non-pointer
-			//            iterators.
+			// Extension: Support contiguous ranges with non-pointer iterators.
 			template <class R>
 			requires
 				!has_member<R> &&

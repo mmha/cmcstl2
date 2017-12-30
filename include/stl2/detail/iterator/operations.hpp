@@ -258,6 +258,9 @@ STL2_OPEN_NAMESPACE {
 		constexpr auto& prev = detail::static_const<__prev_fn>::value;
 	}
 
+	////////////////////////////////////////////////////////////////////////////
+	// enumerate [Extension]
+	//
 	namespace ext {
 		Sentinel{S, I}
 		constexpr tagged_pair<tag::count(difference_type_t<I>), tag::end(I)>
@@ -297,12 +300,14 @@ STL2_OPEN_NAMESPACE {
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////
 	// distance
+	//
 	Sentinel{S, I}
 	// Pre: [first, last)
 	constexpr difference_type_t<I> distance(I first, S last)
 	STL2_NOEXCEPT_RETURN(
-		ext::enumerate(std::move(first), std::move(last)).first
+		ext::enumerate(std::move(first), std::move(last)).count()
 	)
 
 	SizedSentinel{S, I}

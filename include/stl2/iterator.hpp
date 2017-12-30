@@ -15,10 +15,7 @@
 
 #include <initializer_list>
 
-#include <stl2/type_traits.hpp>
 #include <stl2/detail/fwd.hpp>
-#include <stl2/detail/meta.hpp>
-#include <stl2/detail/concepts/object.hpp>
 #include <stl2/detail/iterator/any_iterator.hpp>
 #include <stl2/detail/iterator/basic_iterator.hpp>
 #include <stl2/detail/iterator/common_iterator.hpp>
